@@ -1,0 +1,53 @@
+<header>
+  <h1>Sched.do Dashboard</h1>
+  <ul>
+    <li><%= link_to "Menu", "#" %></li>
+    <li><%= link_to "Share", "#" %></li>
+  </ul>
+</header>
+<nav>
+	<ul>
+		<li><%= link_to "MAU", "#", :role => "user" %></li>
+    <li><%= link_to "DAU", "#", :role => "user" %></li>
+    <li><%= link_to "Polls Created", "#", :role => "menu" %></li>
+    <li><%= link_to "Users Invited", "#", :role => "heart" %></li>
+    <li><%= link_to "Invitation Funnel", "#", :role => "menu" %></li>
+    <li><%= link_to "Yammer User Flow", "#", :role => "menu" %></li>
+    <li><%= link_to "Guest Flow", "#", :role => "menu" %></li>
+    <li><%= link_to "Invitees to Voters %", "#", :role => "heart" %></li>
+	</ul>
+</nav>
+
+<article>
+  <section>
+    <div id="chart_div" style="width: 800px; height: 400px;"></div>
+    <h3>Active Users <span class="up">▴ 38% last 7 days</span></h3>
+    
+    <p>An active user is anyone who engaged with Sched.do in any of the following ways; created a poll, visited a poll page, voted on a poll, invited someone else to vote, shared a poll, commented on a poll, or copied the poll link.</p>
+    <p><small>Updated 43 minutes ago</small></p>
+
+    <a class="button" href="#">View Query</a>
+  </section>
+</article>
+
+
+<script type="text/javascript">
+    
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1', {'packages':['corechart']});
+      
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+      
+    function drawChart() {
+      var jsonData = '{"cols": [{"id":"","label":"Topping","pattern":"","type":"string"},    {"id":"","label":"Slices","pattern":"","type":"number"}],"rows": [{"c":[{"v":"Mushrooms","f":null},{"v":3,"f":null}]},{"c":[{"v":"Onions","f":null},{"v":1,"f":null}]},{"c":[{"v":"Olives","f":null},{"v":1,"f":null}]},{"c":[{"v":"Zucchini","f":null},{"v":1,"f":null}]},{"c":[{"v":"Pepperoni","f":null},{"v":2,"f":null}]}]}';
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(jsonData);
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      chart.draw(data, {width: 400, height: 240});
+    }
+
+    </script>

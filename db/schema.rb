@@ -151,11 +151,11 @@ ActiveRecord::Schema.define(:version => 20130205230425) do
     t.text     "extra"
     t.boolean  "yammer_staging",                 :default => false
     t.integer  "yammer_network_id",                                 :null => false
+    t.string   "yammer_network_name",            :default => "",    :null => false
     t.string   "watermarked_image_file_name"
     t.string   "watermarked_image_content_type"
     t.integer  "watermarked_image_file_size"
     t.datetime "watermarked_image_updated_at"
-    t.string   "yammer_network_name",            :default => "",    :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
