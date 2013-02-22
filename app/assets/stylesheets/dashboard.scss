@@ -114,15 +114,15 @@ nav li a{
   background-size: 20px;
   background-position: top left;
 
-  &[role="user"] {background-image: url(/images/user.svg);}
-  &[role="heart"] {background-image: url(/images/heart.svg);}
-  &[role="menu"] {background-image: url(/images/menu.svg);}
-  &[role="share"] {background-image: url(/images/share.svg);}
+  &[role="user"] {background-image: url(/assets/dashboard/user.svg);}
+  &[role="heart"] {background-image: url(/assets/dashboard/heart.svg);}
+  &[role="menu"] {background-image: url(/assets/dashboard/menu.svg);}
+  &[role="share"] {background-image: url(/assets/dashboard/share.svg);}
 }
 
-.button {
+a.button {
   font-family: "Montserrat";
-  background:#28545B;
+  background:#BDD7DC;
   display:inline-block;
   padding:20px 80px;
   text-transform: uppercase;
@@ -130,4 +130,35 @@ nav li a{
   color:#fff;
   text-decoration: none;
   letter-spacing: 2px;
+  border-bottom:1px solid darken(#BDD7DC, 10%);
+}
+
+.data-selector {
+  @include clearfix;
+  margin:40px 0;
+  padding:0; 
+
+  li {
+    @extend a.button;
+    padding:20px 40px;
+    margin-right:20px;
+    font-size:.75em;
+
+    &.active {background: #599AA8; border-bottom:1px solid darken(#599AA8, 10%);}
+    &.query {background: #8B5F79; border-bottom:1px solid darken(#8B5F79, 10%);}
+
+    a {
+      color:#fff;
+      text-decoration: none;
+    }
+  }
+}
+
+#mau {
+  min-height:50vh;
+  max-height: 80vh;
+}
+
+svg {
+  font-family: "Montserrat";
 }
