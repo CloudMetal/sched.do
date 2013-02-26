@@ -1,19 +1,29 @@
-<div id="mau-all-time"></div>
-<div id="mau-monthly"></div>
-<div id="mau-weekly"></div>
-
-<ul class="data-selector">
-  <li><%= link_to "All Time", "#" %></li>
-  <li class="active"><%= link_to "Monthly", "#" %></li>
-  <li><%= link_to "Weekly", "#" %></li>
-  <li class="query"><%= link_to "View Query", "https://dataclips.heroku.com/eyisfmhtoggpmnilhsparaqlzhqy" %></li>
-</ul>
-
-<h3>Monthly Active Users <span class="up">▴ 38% last 7 days</span></h3>
+<h3>Active Users <span class="up">▴ 38% last 7 days</span></h3>
 
 <p>An active user is anyone who engaged with Sched.do in any of the following ways; created a poll, visited a poll page, voted on a poll, invited someone else to vote, shared a poll, commented on a poll, or copied the poll link.</p>
 
 <p><small>Updated 43 minutes ago</small></p>
+
+<ul class="nav nav-tabs data-selector">
+  <li class="active"><%= link_to "All Time", "#all-time", "data-toggle" => "tab" %></li>
+  <li><%= link_to "Monthly", "#monthly", "data-toggle" => "tab" %></li>
+  <li><%= link_to "Weekly", "#weekly", "data-toggle" => "tab" %></li>
+  <li class="query"><%= link_to "View Query", "https://dataclips.heroku.com/eyisfmhtoggpmnilhsparaqlzhqy", :target => "_blank" %></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="all-time">
+     <div id="mau-all-time"></div>
+  </div>
+  <div class="tab-pane" id="monthly">
+    <div id="mau-monthly"></div>
+  </div>
+  <div class="tab-pane" id="weekly">
+    <div id="mau-weekly"></div>
+  </div>
+</div>
+
+
 
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
@@ -35,6 +45,8 @@
       ]);
 
     var options = {
+      width: 1000, 
+      height: 600,
       hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
       colors: ['#217D5B'],
       legendTextStyle: {fontName: 'Open Sans'}
@@ -65,6 +77,8 @@
       ]);
 
     var options = {
+      width: 1000, 
+      height: 800,
       hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
       colors: ['#217D5B'],
       legendTextStyle: {fontName: 'Open Sans'}
@@ -84,18 +98,44 @@
       data.addColumn('string', 'Month');
       data.addColumn('number', 'Active Users');
       data.addRows([
-        ['7/2012', 1],
-        ['8/2012', 104],
-        ['9/2012', 75],
-        ['10/2012', 115],
-        ['11/2012', 802],
-        ['12/2012', 770],
-        ['1/2013', 681],
-        ['2/2013', 542]
+        ['7/1/2012', 1],
+        ['7/7/2012', 1],
+        ['7/14/2012', 1],
+        ['7/21/2012', 1],
+        ['8/1/2012', 104],
+        ['8/7/2012', 104],
+        ['8/14/2012', 104],
+        ['8/21/2012', 104],
+        ['9/1/2012', 75],
+        ['9/7/2012', 75],
+        ['9/14/2012', 75],
+        ['9/21/2012', 75],
+        ['10/1/2012', 115],
+        ['10/7/2012', 115],
+        ['10/14/2012', 115],
+        ['10/21/2012', 115],
+        ['11/1/2012', 802],
+        ['11/7/2012', 802],
+        ['11/14/2012', 802],
+        ['11/21/2012', 802],
+        ['12/1/2012', 770],
+        ['12/7/2012', 770],
+        ['12/14/2012', 770],
+        ['12/21/2012', 770],
+        ['1/1/2013', 681],
+        ['1/7/2013', 681],
+        ['1/14/2013', 681],
+        ['1/21/2013', 681],
+        ['2/1/2013', 542],
+        ['2/7/2013', 542],
+        ['2/14/2013', 542],
+        ['2/21/2013', 542]
       ]);
 
     var options = {
-      hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
+      width: 1000, 
+      height: 800,
+      hAxis: {title: 'Week', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
       colors: ['#217D5B'],
       legendTextStyle: {fontName: 'Open Sans'}
     };
