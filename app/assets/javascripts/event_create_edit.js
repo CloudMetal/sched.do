@@ -4,14 +4,20 @@
 //= require jquery-placeholder
 
 $(document).ready(function(){
-  window.onbeforeunload = function(e) {
-    return 'Dialog text here.';
-  };
-
   $('#new_event').submit(function(){
-    $('.cta').submit(function(){
-      window.beforeunload = null;
-     });
     $('.cta').prop('disabled', true);
+  });
+
+  var form_clean = $("#new_event").serialize();
+
+  window.onbeforeunload = function(){
+    var form_dirty = $("#new_event").serialize();
+    if(form_clean != form_dirty){
+      return "Your changes will not be saved.";
+    }
+  }
+
+  $("#new_event").submit(function(){
+     window.onbeforeunload = null;
   });
 });
