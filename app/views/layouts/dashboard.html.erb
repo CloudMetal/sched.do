@@ -18,6 +18,31 @@
   </head>
   
   <body class="dashboard">
-    <%= yield %>
+    <header>
+      <h1>Sched.do Dashboard</h1>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+      </ul>
+    </header>
+    
+    <nav>
+      <ul>
+        <li><%= link_to "MAU", "#", :role => "user" %></li>
+        <li><%= link_to "DAU", "#", :role => "user" %></li>
+        <li><%= link_to "Polls Created", "#", :role => "menu" %></li>
+        <li><%= link_to "Users Invited", "#", :role => "heart" %></li>
+        <li><%= link_to "Invitation Funnel", "#", :role => "menu" %></li>
+        <li><%= link_to "Yammer User Flow", "#", :role => "menu" %></li>
+        <li><%= link_to "Guest Flow", "#", :role => "menu" %></li>
+        <li><%= link_to "Invitees to Voters %", "#", :role => "heart" %></li>
+      </ul>
+    </nav>
+
+    <article>
+      <section>
+        <%= yield %>
+      </section>
+    </article>
+    
   </body>
 </html>

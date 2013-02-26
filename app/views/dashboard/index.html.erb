@@ -1,65 +1,106 @@
-<header>
-  <h1>Sched.do Dashboard</h1>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-  </ul>
-</header>
-<nav>
-	<ul>
-		<li><%= link_to "MAU", "#", :role => "user" %></li>
-    <li><%= link_to "DAU", "#", :role => "user" %></li>
-    <li><%= link_to "Polls Created", "#", :role => "menu" %></li>
-    <li><%= link_to "Users Invited", "#", :role => "heart" %></li>
-    <li><%= link_to "Invitation Funnel", "#", :role => "menu" %></li>
-    <li><%= link_to "Yammer User Flow", "#", :role => "menu" %></li>
-    <li><%= link_to "Guest Flow", "#", :role => "menu" %></li>
-    <li><%= link_to "Invitees to Voters %", "#", :role => "heart" %></li>
-	</ul>
-</nav>
+<div id="mau-all-time"></div>
+<div id="mau-monthly"></div>
+<div id="mau-weekly"></div>
 
-<article>
-  <section>
-    <div id="mau"></div>
-        <ul class="data-selector">
-      <li><%= link_to "All Time", "#" %></li>
-      <li class="active"><%= link_to "Monthly", "#" %></li>
-      <li><%= link_to "Weekly", "#" %></li>
-      <li class="query"><%= link_to "View Query", "https://dataclips.heroku.com/eyisfmhtoggpmnilhsparaqlzhqy" %></li>
-    </ul>
-    <h3>Monthly Active Users <span class="up">▴ 38% last 7 days</span></h3>
+<ul class="data-selector">
+  <li><%= link_to "All Time", "#" %></li>
+  <li class="active"><%= link_to "Monthly", "#" %></li>
+  <li><%= link_to "Weekly", "#" %></li>
+  <li class="query"><%= link_to "View Query", "https://dataclips.heroku.com/eyisfmhtoggpmnilhsparaqlzhqy" %></li>
+</ul>
+
+<h3>Monthly Active Users <span class="up">▴ 38% last 7 days</span></h3>
+
+<p>An active user is anyone who engaged with Sched.do in any of the following ways; created a poll, visited a poll page, voted on a poll, invited someone else to vote, shared a poll, commented on a poll, or copied the poll link.</p>
+
+<p><small>Updated 43 minutes ago</small></p>
+
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
     
-    <p>An active user is anyone who engaged with Sched.do in any of the following ways; created a poll, visited a poll page, voted on a poll, invited someone else to vote, shared a poll, commented on a poll, or copied the poll link.</p>
-    <p><small>Updated 43 minutes ago</small></p>
-  </section>
-</article>
+    var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Month');
+      data.addColumn('number', 'Active Users');
+      data.addRows([
+        ['7/2012', 1],
+        ['8/2012', 105],
+        ['9/2012', 180],
+        ['10/2012', 295],
+        ['11/2012', 1097],
+        ['12/2012', 1867],
+        ['1/2013', 2541],
+        ['2/2013', 3083]
+      ]);
 
+    var options = {
+      hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
+      colors: ['#217D5B'],
+      legendTextStyle: {fontName: 'Open Sans'}
+    };
 
- <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        
-        var data = new google.visualization.DataTable();
-          data.addColumn('string', 'Month');
-          data.addColumn('number', 'Active Users');
-          data.addRows([
-            ['7/2012', 1],
-            ['8/2012', 104],
-            ['9/2012', 75],
-            ['10/2012', 115],
-            ['11/2012', 802],
-            ['12/2012', 770],
-            ['1/2013', 681],
-            ['2/2013', 542]
-          ]);
+    var chart = new google.visualization.ColumnChart(document.getElementById('mau-all-time'));
+    chart.draw(data, options);
+  }
+</script>
 
-        var options = {
-          hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
-          colors: ['#217D5B'],
-          legendTextStyle: {fontName: 'Open Sans'}
-        };
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    
+    var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Month');
+      data.addColumn('number', 'Active Users');
+      data.addRows([
+        ['7/2012', 1],
+        ['8/2012', 104],
+        ['9/2012', 75],
+        ['10/2012', 115],
+        ['11/2012', 802],
+        ['12/2012', 770],
+        ['1/2013', 681],
+        ['2/2013', 542]
+      ]);
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('mau'));
-        chart.draw(data, options);
-      }
-    </script>
+    var options = {
+      hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
+      colors: ['#217D5B'],
+      legendTextStyle: {fontName: 'Open Sans'}
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('mau-monthly'));
+    chart.draw(data, options);
+  }
+</script>
+
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    
+    var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Month');
+      data.addColumn('number', 'Active Users');
+      data.addRows([
+        ['7/2012', 1],
+        ['8/2012', 104],
+        ['9/2012', 75],
+        ['10/2012', 115],
+        ['11/2012', 802],
+        ['12/2012', 770],
+        ['1/2013', 681],
+        ['2/2013', 542]
+      ]);
+
+    var options = {
+      hAxis: {title: 'Month', titleTextStyle: {fontName: 'Open Sans', color: '#999999'}},
+      colors: ['#217D5B'],
+      legendTextStyle: {fontName: 'Open Sans'}
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('mau-weekly'));
+    chart.draw(data, options);
+  }
+</script>
