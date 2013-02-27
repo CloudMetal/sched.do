@@ -59,7 +59,7 @@ nav {
   top:60px;
   left:0;
   bottom:0;
-  width:400px;
+  width:30vw;
 
   ul {
     list-style-type: none;
@@ -89,13 +89,16 @@ article {
   position: fixed;
   top:60px;
   right:0;
-  left:400px;
+  left:30vw;
+  bottom:0;
+  overflow: scroll;
+  
 }
 
 section {
   padding:20px 60px;
   border-bottom:1px solid #efefef;
-  width:800px;
+  max-width: 70vw;
 
   h3 {
     font-weight: normal;
